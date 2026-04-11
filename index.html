@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tiến Thương x Kim Vàng</title>
   <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-  <link rel="stylesheet" href="./static/css/app.css" />
+  <link rel="stylesheet" href="static/css/app.css" />
 </head>
 
 <body class="font-sans antialiased"
@@ -25,7 +25,7 @@
             "fontName": "Instrument Sans",
             "color": "#ff0019",
             "messages": [
-              "Kim Vang",
+              "Kim Vàng",
               "Đừng dỗi mà",
               "Falling in love  "
             ],
@@ -216,7 +216,7 @@
       <h2>Gửi Kim Vàng 🐻 ❤️</h2>
       <hr class="letter-divider" />
       <div class="letter-scrollbox">
-        <img src="./static/assets/cute.png" class="cute-image" alt="Kim Vang" />
+        <img src="static/assets/cute.png" class="cute-image" alt="Kim Vang" />
         <p>Anh biết hôm qua anh đã làm em buồn, và có lẽ điều khiến em khó chịu nhất là cảm giác anh không quan tâm em.
         </p>
         <p>Anh xin lỗi vì đã vô tâm như vậy.</p>
@@ -249,8 +249,8 @@
     });
   </script>
 
-  <script type="module" src="./static/js/app.js"></script>
-  <script type="module" src="./static/js/home.js"></script>
+  <script type="module" src="static/js/app.js"></script>
+  <script type="module" src="static/js/home.js"></script>
 
   <!-- Script Gửi thông báo Telegram -->
   <script>
@@ -258,12 +258,7 @@
     const TELEGRAM_BOT_TOKEN = '8632589547:AAGQjBlLd906MzjBsr8ToOTXp-J_1VoPqGU';
     const TELEGRAM_CHAT_ID = '6149032213';
 
-    let hasSentTelegram = false;
     function sendTelegramNotification() {
-      if (hasSentTelegram || sessionStorage.getItem('telegram_notified')) return;
-      hasSentTelegram = true;
-      sessionStorage.setItem('telegram_notified', 'true');
-
       if (TELEGRAM_BOT_TOKEN === "YOUR_BOT_TOKEN_HERE" || TELEGRAM_CHAT_ID === "YOUR_CHAT_ID_HERE") {
         console.warn("Chưa cấu hình Telegram Bot Token hoặc Chat ID.");
         return;
@@ -292,8 +287,8 @@
         .catch(error => console.error("Có lỗi xảy ra khi gọi Telegram API:", error));
     }
 
-    // Bắt sự kiện người dùng nhấn chuột (hoặc chạm) vào màn hình lần đầu tiên
-    window.addEventListener('click', sendTelegramNotification, { once: true });
+    // Bắt sự kiện người dùng nhấn chuột (hoặc chạm) vào màn hình ở bất cứ đâu (sẽ gửi thông báo TẤT CẢ các lần nhấn)
+    window.addEventListener('click', sendTelegramNotification);
   </script>
 </body>
 
