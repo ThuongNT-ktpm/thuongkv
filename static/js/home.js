@@ -6800,7 +6800,7 @@ function Nr({
 }
 function Fr({ startX: e, startZ: t, speed: i, color: s }) {
   const n = M.useRef(),
-    r = mi(Ir, "./heart.obj"),
+    r = mi(Ir, "/thuongkv/heart.obj"),
     o = 50 + Math.random() * 20,
     a = -40;
   return (
