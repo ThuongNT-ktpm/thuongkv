@@ -71,10 +71,10 @@ const t0 = "",
     function p(y) {
       const g = new Event("vite:preloadError", { cancelable: !0 });
       if (((g.payload = y), window.dispatchEvent(g), !g.defaultPrevented))
-        throw y;
+        console.warn('Vite preload error (ignored):', y);
     }
     return f.then((y) => {
-      for (const g of y || []) g.status === "rejected" && p(g.reason);
+      // Ignored preload rejections to prevent crashing on Github Pages
       return i().catch(p);
     });
   };
